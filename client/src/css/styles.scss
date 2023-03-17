@@ -1,0 +1,247 @@
+$canvas: #030303;
+$element: #1A1A1B;
+
+$font-title: rgb(233, 233, 233);
+$font-descr: rgb(206, 206, 206); 
+
+* {
+  // height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  outline: none;
+  text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: $canvas;
+  color: $font-descr;
+  height: auto;
+  padding-bottom: 3em;
+  .navbar {
+    color: $font-title;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 2.5em;
+    background-color: $element;
+    a {
+      text-decoration: none;
+      color: $font-title;
+    }
+    button {
+      background-color: $element;
+      color: firebrick;
+      padding: 3px 8px;
+    }
+  }
+  .public {
+    display: flex;
+    flex-direction: column;
+    background: inherit;
+    height: 100vh;
+    h1 {
+      color: $font-title;
+      font-size: 3em;
+    }
+    #public-issues-title {
+      display: flex;
+      margin: .5em;
+      justify-content: center;
+    }
+    #issue-list {
+      display: flex;
+      flex-direction: column;
+      .issue-li {
+        padding-left: .5em;
+        padding-right: .5em;
+        a {
+          text-decoration: none;
+          h1 {
+            font-size: 2em;
+            margin-bottom: .3em;
+          }
+          p {
+            color: $font-descr;
+          }
+          h3 {
+            color: $font-title;
+            span {
+              color: orange;
+            }
+          }
+        }
+        img {
+          width: 20px;
+          height: auto;
+          margin-right: 5px;
+        }
+        .upvote {
+          filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+          margin-left: 5px;
+        }
+        .downvote {
+          filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+        }
+      }
+    }
+    #new-comment-form {
+      border: 1px solid red;
+      margin: 20px 20px;
+      padding: 5px;
+      p {
+        margin: 5px;
+      }
+      input {
+        width: 30rem;
+      }
+    }
+  }
+  .profile {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    background: inherit;
+    h1 {
+      color: $font-title;
+      font-size: 3em;
+    }
+    h3 {
+      margin: 16px 0;
+      justify-content: center;
+    }
+    #profile-page-title {
+      display: flex;
+      margin: .5em;
+      justify-content: center;
+    }
+    #add-issue-txt {
+      display: flex;
+      justify-content: center;
+    }
+    #your-issues-txt {
+      display: flex;
+      justify-content: center;
+    }
+    #profile-issue-list {
+      display: flex;
+      list-style-type: none;
+      flex-direction: column;
+      .profile-issue-li {
+        margin: 1em .5em;
+        a {
+          text-decoration: none;
+          h1 {
+            font-size: 2em;
+            margin-bottom: .3em;
+          }
+          p {
+            color: $font-descr;
+          }
+          h3 {
+            color: $font-title;
+            span {
+                color: orange;
+            }
+          }
+        }
+        img {
+          width: 20px;
+          height: auto;
+          margin-right: 5px;
+        }
+        .upvote {
+          filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+          margin-left: 5px;
+        }
+        .downvote {
+          filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+        }
+      }
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin: 16px 0;
+      border: 1px solid;
+      background-color: $element;
+      padding: 16px;
+      border-radius: 5px;
+      input, button {
+        margin: 8px 0;
+        padding: 8px;
+        border-radius: 5px;
+      }
+    }
+  }
+}
+
+
+
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  h1 {
+    font-size: 2em;
+    margin: 24px;
+  }
+  p {
+    margin: 16px;
+    text-decoration: underline;
+  }
+  form {
+    border: 1px solid;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: $element;
+    display: flex;
+    flex-direction: column;
+    input {
+      margin: 16px 8px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+    button {
+      margin: 16px 8px;
+      padding: 8px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.issue-li {
+  a {
+    text-decoration: none;
+    h1 {
+      font-size: 2em;
+    }
+    p {
+      color: $font-descr;
+    }
+    h3 {
+      color: $font-title;
+      span {
+        color: orange;
+      }
+    }
+  }
+  img {
+    width: 20px;
+    height: auto;
+    margin-right: 5px;
+  }
+  #upvote {
+    filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+    margin-left: 5px;
+  }
+  #downvote {
+    filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+  }
+}

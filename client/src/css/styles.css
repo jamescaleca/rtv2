@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  outline: none;
+  text-decoration: none;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  background-color: #030303;
+  color: rgb(206, 206, 206);
+  height: auto;
+  padding-bottom: 3em;
+}
+.app .navbar {
+  color: rgb(233, 233, 233);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.5em;
+  background-color: #1A1A1B;
+}
+.app .navbar a {
+  text-decoration: none;
+  color: rgb(233, 233, 233);
+}
+.app .navbar button {
+  background-color: #1A1A1B;
+  color: firebrick;
+  padding: 3px 8px;
+}
+.app .public {
+  display: flex;
+  flex-direction: column;
+  background: inherit;
+  height: 100vh;
+}
+.app .public h1 {
+  color: rgb(233, 233, 233);
+  font-size: 3em;
+}
+.app .public #public-issues-title {
+  display: flex;
+  margin: 0.5em;
+  justify-content: center;
+}
+.app .public #issue-list {
+  display: flex;
+  flex-direction: column;
+}
+.app .public #issue-list .issue-li {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+.app .public #issue-list .issue-li a {
+  text-decoration: none;
+}
+.app .public #issue-list .issue-li a h1 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+.app .public #issue-list .issue-li a p {
+  color: rgb(206, 206, 206);
+}
+.app .public #issue-list .issue-li a h3 {
+  color: rgb(233, 233, 233);
+}
+.app .public #issue-list .issue-li a h3 span {
+  color: orange;
+}
+.app .public #issue-list .issue-li img {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+.app .public #issue-list .issue-li .upvote {
+  filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+  margin-left: 5px;
+}
+.app .public #issue-list .issue-li .downvote {
+  filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+}
+.app .public #new-comment-form {
+  border: 1px solid red;
+  margin: 20px 20px;
+  padding: 5px;
+}
+.app .public #new-comment-form p {
+  margin: 5px;
+}
+.app .public #new-comment-form input {
+  width: 30rem;
+}
+.app .profile {
+  display: flex;
+  flex-direction: column;
+  background: inherit;
+}
+.app .profile h1 {
+  color: rgb(233, 233, 233);
+  font-size: 3em;
+}
+.app .profile h3 {
+  margin: 16px 0;
+  justify-content: center;
+}
+.app .profile #profile-page-title {
+  display: flex;
+  margin: 0.5em;
+  justify-content: center;
+}
+.app .profile #add-issue-txt {
+  display: flex;
+  justify-content: center;
+}
+.app .profile #your-issues-txt {
+  display: flex;
+  justify-content: center;
+}
+.app .profile #profile-issue-list {
+  display: flex;
+  list-style-type: none;
+  flex-direction: column;
+}
+.app .profile #profile-issue-list .profile-issue-li {
+  margin: 1em 0.5em;
+}
+.app .profile #profile-issue-list .profile-issue-li a {
+  text-decoration: none;
+}
+.app .profile #profile-issue-list .profile-issue-li a h1 {
+  font-size: 2em;
+  margin-bottom: 0.3em;
+}
+.app .profile #profile-issue-list .profile-issue-li a p {
+  color: rgb(206, 206, 206);
+}
+.app .profile #profile-issue-list .profile-issue-li a h3 {
+  color: rgb(233, 233, 233);
+}
+.app .profile #profile-issue-list .profile-issue-li a h3 span {
+  color: orange;
+}
+.app .profile #profile-issue-list .profile-issue-li img {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+.app .profile #profile-issue-list .profile-issue-li .upvote {
+  filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+  margin-left: 5px;
+}
+.app .profile #profile-issue-list .profile-issue-li .downvote {
+  filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+}
+.app .profile form {
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+  border: 1px solid;
+  background-color: #1A1A1B;
+  padding: 16px;
+  border-radius: 5px;
+}
+.app .profile form input, .app .profile form button {
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.auth-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+.auth-container h1 {
+  font-size: 2em;
+  margin: 24px;
+}
+.auth-container p {
+  margin: 16px;
+  text-decoration: underline;
+}
+.auth-container form {
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #1A1A1B;
+  display: flex;
+  flex-direction: column;
+}
+.auth-container form input {
+  margin: 16px 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+.auth-container form button {
+  margin: 16px 8px;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.issue-li a {
+  text-decoration: none;
+}
+.issue-li a h1 {
+  font-size: 2em;
+}
+.issue-li a p {
+  color: rgb(206, 206, 206);
+}
+.issue-li a h3 {
+  color: rgb(233, 233, 233);
+}
+.issue-li a h3 span {
+  color: orange;
+}
+.issue-li img {
+  width: 20px;
+  height: auto;
+  margin-right: 5px;
+}
+.issue-li #upvote {
+  filter: invert(65%) sepia(9%) saturate(6603%) hue-rotate(1deg) brightness(104%) contrast(102%);
+  margin-left: 5px;
+}
+.issue-li #downvote {
+  filter: invert(57%) sepia(38%) saturate(1421%) hue-rotate(192deg) brightness(97%) contrast(91%);
+}/*# sourceMappingURL=styles.css.map */
