@@ -16,7 +16,7 @@ issueRouter.route('/')
     })
     // Add new issue
     .post((req, res, next) => {
-        req.body.user = req.user._id
+        req.body.user = req.auth._id
         const newIssue = new Issue(req.body)
         newIssue.save((err, savedIssue) => {
             if(err){
@@ -33,9 +33,9 @@ issueRouter.put('/upvote/:issueId', (req, res, next) => {
     Issue.findById(req.params.issueId, (err, issue) =>{
         // append the  upvote to the array
         const exists = Array.from(issue.upvotes).find(upvote => 
-            String(upvote.user) === req.user._id)
+            String(upvote.user) === req.auth._id)
         const downvoteExist = Array.from(issue.downvotes).find(downvote => 
-            String(downvote.user === req.user._id)
+            String(downvote.user === req.auth._id)
         )
         // if(exists && downvoteExist) {
         //     return res.status(201).send(issue)
@@ -85,9 +85,9 @@ issueRouter.put('/downvote/:issueId', (req, res, next) => {
     Issue.findById(req.params.issueId, (err, issue) =>{
         // append the upvote to the array
         const exists = Array.from(issue.downvotes).find(downvote => 
-            String(downvote.user) === req.user._id)
+            String(downvote.user) === req.auth._id)
         const upvoteExist = Array.from(issue.upvotes).find(upvote => 
-            String(upvote.user === req.user._id))
+            String(upvote.user === req.auth._id))
 
         if(!exists && !upvoteExist) {
             issue.downvotes.push({user: req.user})
@@ -131,7 +131,7 @@ issueRouter.put('/downvote/:issueId', (req, res, next) => {
 
 // Get issues by user id
 issueRouter.get('/user', (req, res, next) => {
-    Issue.find({ user: req.user._id }, (err, issues) => {
+    Issue.find({ user: req.auth._id }, (err, issues) => {
         if(err){
             res.status(500)
             return next(err)
@@ -156,7 +156,7 @@ issueRouter.route('/:issueId')
     // Delete Issue
     .delete((req, res, next) => {
         Issue.findOneAndDelete(
-            { _id: req.params.issueId, user: req.user._id },
+            { _id: req.params.issueId, user: req.auth._id },
             (err, deletedIssue) => {
                 if(err){
                     res.status(500)
@@ -170,7 +170,7 @@ issueRouter.route('/:issueId')
     // Update Issue
     .put((req, res, next) => {
         Issue.findByIdAndUpdate(
-            { _id: req.params.issueId, user: req.user._id },
+            { _id: req.params.issueId, user: req.auth._id },
             req.body,
             { new: true },
             (err, updatedIssue) => {
@@ -185,7 +185,7 @@ issueRouter.route('/:issueId')
 
 // Add new Comment
 issueRouter.post('/:issueId/comments', (req, res, next) => {
-    req.body.user = req.user._id
+    req.body.user = req.auth._id
     const id = req.params.issueId
     const newComment = new Comment(req.body)
 

@@ -1,9 +1,15 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
-export default function ProtectedRoute(props){
-  const { path, redirectTo, component: C, token, ...rest} = props
-  return token ? 
-    <Route path={path} render={() => <C {...rest}/>} /> :
-    <Redirect to={redirectTo} />
+function ProtectedRoute(props){
+  const { children, redirectTo, token} = props
+  return token ? children : <Navigate to={redirectTo} />
+
+
+    // <Route path={path} render={() => <C {...rest}/>} /> 
+    // :
+    // <></>
+    // <Redirect to={redirectTo} />
 }
+
+export default ProtectedRoute;

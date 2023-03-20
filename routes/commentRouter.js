@@ -5,7 +5,7 @@ const Comment = require('../models/comment.js')
 
 // Add new Comment
 commentRouter.post('/', (req, res, next) => {
-    req.body.user = req.user._id
+    req.body.user = req.auth._id
     const id = req.params.issueId
     const newComment = new Comment(req.body)
 
@@ -25,7 +25,7 @@ commentRouter.post('/', (req, res, next) => {
 
 // Delete comment by id
 commentRouter.delete('/:commentId', (req, res, next) => {
-    req.body.user = req.user._id
+    req.body.user = req.auth._id
     const issueId = req.params.issueId
     Comment.findOneAndDelete(
         { _id: req.params.commentId, user: req.body.user, issue: issueId },

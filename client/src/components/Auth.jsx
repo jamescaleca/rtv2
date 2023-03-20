@@ -3,7 +3,7 @@ import AuthForm from './AuthForm.jsx'
 import { UserContext } from '../context/UserProvider.jsx'
 import '../css/styles.css'
 
-const initInputs = {userName: '', password: ''}
+const initInputs = {username: '', password: ''}
 
 export default function Auth() {
   const [inputs, setInputs] = useState(initInputs)

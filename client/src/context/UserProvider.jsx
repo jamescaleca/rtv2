@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 const UserContext = React.createContext()
@@ -27,6 +27,7 @@ export default function UserProvider(props) {
     axios.post('/auth/signup', credentials)
       .then(res => {
         const { user, token } = res.data
+        console.log(res)
         localStorage.setItem('token', token)
         localStorage.setItem('user', JSON.stringify(user))
         setUserState(prevUserState => ({
@@ -36,6 +37,8 @@ export default function UserProvider(props) {
         }))
       })
       .catch(err => handleAuthError(err.response.data.errMsg))
+      // .then(res => console.log(res))
+      // .catch(err => console.log(err))
   }
 
   function login(credentials) {
@@ -209,7 +212,7 @@ export default function UserProvider(props) {
     return getUserIssues()
   }
 
-  const history = useHistory()
+  // const history = useHistory()
 
   function submitBtnRedirect() {
     history.push('/profile')
