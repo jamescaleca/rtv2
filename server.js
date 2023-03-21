@@ -4,6 +4,7 @@ require('dotenv').config()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const {expressjwt: jwt} = require('express-jwt')
+const path = require('path')
 
 // const port = process.env.PORT || 9000;
 
@@ -29,12 +30,18 @@ app.use('/api', jwt({ secret: secret, algorithms: ['HS256'] }))
 
 app.use('/api/issues', require('./routes/issueRouter.js'))
 
+app.use(express.static(path.join(_dirname, "client", "build")))
+
 app.use((err, req, res, next) => {
   console.log(err)
   if(err.name === 'UnauthorizedError'){
     res.status(err.status)
   }
   return res.send({errMsg: err.message})
+})
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(_dirname, "client", "build", "index.html"))
 })
 
 app.listen(9000, () => {
